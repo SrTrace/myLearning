@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
+import React from "react";
 
-const el = <h1>Hello World</h1>;
+import App from "./components/app";
 
-ReactDOM.render(el, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));

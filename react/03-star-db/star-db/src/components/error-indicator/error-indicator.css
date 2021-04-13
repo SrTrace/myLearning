@@ -1,0 +1,20 @@
+.error-indicator {
+    color: orange;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    margin: 0 auto;
+    text-align: center;
+}
+
+.boom  {
+font-size: 3rem;
+}
+
+.error-indicator > span {
+    display: block;
+}
+
+.error-icon {
+    width: 80px;
+    height: 80px;
+}
