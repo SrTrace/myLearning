@@ -8,12 +8,6 @@ const Spinner = () => {
           <div className="ldio-f6bga5qspro">
               <div></div>
               <div></div>
-              <div>
-                  <div></div>
-              </div>
-              <div>
-                  <div></div>
-              </div>
           </div>
       </div>
   );
