@@ -3,17 +3,26 @@ import React, {Component} from 'react';
 import Header from "../header";
 import RandomPlanet from "../random-planet";
 import ErrorBoundry from "../error-boundry";
-
+import {SwapiServiceProvider} from "../swapi-service-contex";
 
 import './app.css';
-import Row from "../row/row";
+
 import ItemDetails, {Record} from "../item-details/item-details";
 import SwapiService from "../../services/swapi-service";
-import ItemList from "../item-list/item-list";
+import DummySwapiService from "../../services/dummy-swapi-service";
+
+import {
+    PersonList,
+    PlanetList,
+    StarshipList,
+    PersonDetails,
+    PlanetDetails,
+    StarshipDetails
+} from "../sw-components";
 
 export default class App extends Component {
 
-    swapiService = new SwapiService();
+    swapiService = new DummySwapiService();
 
     state = {
         showRandomPlanet: true,
@@ -39,7 +48,8 @@ export default class App extends Component {
             getPersonImage,
             getStarshipImage,
             getAllPeople,
-            getAllPlanets} = this.swapiService;
+            getAllPlanets
+        } = this.swapiService;
 
         const personDetails = (
             <ItemDetails
@@ -67,24 +77,24 @@ export default class App extends Component {
 
         return (
             <ErrorBoundry>
-                <div className="stardb-app">
-                    <Header/>
+                <SwapiServiceProvider value={this.swapiService}>
+                    <div className="stardb-app">
+                        <Header/>
 
-                    <ItemList
-                        getData={getAllPeople}
-                        onItemSelected={() => {}}>
+                        <PersonDetails itemId={11}/>
 
-                        {({name}) => <span>{name}</span>}
-                    </ItemList>
+                        <PlanetDetails itemId={5}/>
 
-                    <ItemList
-                        getData={getAllPlanets}
-                        onItemSelected={() => {}}>
+                        <StarshipDetails itemId={9}/>
 
-                        {({name}) => <span>{name}</span>}
-                    </ItemList>
+                        <PersonList/>
 
-                </div>
+                        <StarshipList/>
+
+                        <PlanetList/>
+
+                    </div>
+                </SwapiServiceProvider>
             </ErrorBoundry>
         );
     }
