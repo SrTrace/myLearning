@@ -1,0 +1,32 @@
+import React, {useState} from 'react';
+// import ReactDOM from 'react-dom';
+//
+// const App = () => {
+//     return (
+//         <div>
+//             <HookSwitcher/>
+//         </div>
+//     );
+// };
+
+const HookSwitcher = () => {
+
+    const [color, setColor] = useState('gray');
+    const [fontSize, setFontSize] = useState(14);
+
+    return (
+        <div style={{
+            padding: '10px',
+            backgroundColor: color,
+            fontSize: `${fontSize}px`
+        }}>
+            <p>Hello world</p>
+            <button onClick={() => setColor('gray')}>Dark</button>
+            <button onClick={() => setColor('white')}>Light</button>
+            <button onClick={() => setFontSize((s) => s - 2)}>-</button>
+            <button onClick={() => setFontSize((b) => b + 10)}>+</button>
+        </div>
+    );
+};
+
+export default HookSwitcher;
