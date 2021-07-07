@@ -1,5 +1,5 @@
 
-const bookloaded = (newBooks) => {
+const booksLoaded = (newBooks) => {
 
     return {
         type: 'BOOKS_LOADED',
@@ -8,5 +8,5 @@ const bookloaded = (newBooks) => {
 };
 
 export {
-    bookloaded
+    booksLoaded
 };
